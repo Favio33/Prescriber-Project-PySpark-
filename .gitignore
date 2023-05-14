@@ -1,0 +1,5 @@
+/env/
+/.idea/
+/test.py
+/src/staging/dimension_city/*
+/src/staging/fact/*
