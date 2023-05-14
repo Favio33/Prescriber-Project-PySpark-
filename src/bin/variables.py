@@ -13,5 +13,5 @@ inferSchema = os.environ['inferSchema']
 # Set Other Variables
 appName = "USA Prescriber Research Report"
 currentPath = os.getcwd()
-pathStagingDimensionCity = currentPath + '\\staging\\dimension_city'
-pathStagingFact = currentPath + '\\staging\\fact'
+pathStagingDimensionCity = currentPath + '\\..\\resources\\staging\\dimension_city'
+pathStagingFact = currentPath + '\\..\\resources\\staging\\fact'
