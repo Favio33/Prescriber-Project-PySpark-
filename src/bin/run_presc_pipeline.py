@@ -25,6 +25,7 @@ def main():
         spark = get_spark_object(variables.env, variables.appName)
 
         dfCity = load_files(spark, variables.pathStagingDimensionCity)
+        dfFact = load_files(spark, variables.pathStagingFact)
 
         # Load the Prescriber Fact File
         # Validate

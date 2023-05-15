@@ -2,6 +2,7 @@ import logging
 
 from src.utils.Utilities import get_format_file
 import logging.config
+import pandas
 
 logging.config.fileConfig('../configs/loggingFile.conf')
 logger = logging.getLogger('load_files')
@@ -28,6 +29,9 @@ def load_files(spark, file_path):
         logger.error('Error in method load_files(). Please check the Stack Trace: ' + str(ex), exc_info=True)
         raise ex
     else:
-        logger.info(f'The input file {file_dir} is loaded to an dataframe')
+        logger.info(f"The input file {file_dir} is successfully loaded into a dataframe")
+        logger.info(f"The dataframe loaded has {df.count()} rows")
+        logger.info(f"The dataframe top 10 records are:")
+        logger.info("\n \t" + df.limit(10).toPandas().to_string(index=False))
         return df
 

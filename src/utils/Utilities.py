@@ -19,7 +19,7 @@ def get_format_file(path: str):
                 header = variables.header
                 inferSchema = variables.inferSchema
                 logger.info(f'File {file} found it')
-                return file_format, header, inferSchema
+                return file_format, file_dir, header, inferSchema
 
             elif format_file == 'parquet':
                 file_format = 'parquet'
