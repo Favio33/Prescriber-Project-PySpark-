@@ -24,11 +24,10 @@ def main():
 
         logging.info('main() is started ...')
         spark = get_spark_object(variables.env, variables.appName)
-
+        # Load Columns per DataFrame
         dfCity = load_files(spark, variables.pathStagingDimensionCity)
         dfFact = load_files(spark, variables.pathStagingFact)
-
-
+        # Preprocessed DataFrames
         dfCitySelected = preprocess_dimension(dfCity)
         dfFactSelected = preprocess_fact(dfFact)
 
