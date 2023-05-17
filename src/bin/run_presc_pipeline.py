@@ -5,7 +5,8 @@ import sys
 import variables
 
 # Import Utils Ingestion
-from src.ingestion.load_files import load_files
+from src.ingestion.staging.load_files import load_files
+from src.ingestion.raw.preprocessing import preprocess_dimension, preprocess_fact
 
 # Import Spark Utilities
 from src.spark.SparkSetup import get_spark_object
@@ -26,6 +27,11 @@ def main():
 
         dfCity = load_files(spark, variables.pathStagingDimensionCity)
         dfFact = load_files(spark, variables.pathStagingFact)
+
+
+        dfCitySelected = preprocess_dimension(dfCity)
+        dfFactSelected = preprocess_fact(dfFact)
+
 
         # Load the Prescriber Fact File
         # Validate

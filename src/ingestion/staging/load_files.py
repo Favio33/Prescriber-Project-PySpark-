@@ -1,8 +1,6 @@
-import logging
-
 from src.utils.Utilities import get_format_file
 import logging.config
-import pandas
+
 
 logging.config.fileConfig('../configs/loggingFile.conf')
 logger = logging.getLogger('load_files')
