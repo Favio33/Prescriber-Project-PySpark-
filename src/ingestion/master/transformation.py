@@ -25,6 +25,7 @@ def city_report(df_city, df_fact):
         logger.info('Successfully joined')
         dfJoinCityFactSelected = dfJoinCityFact.select("city", "state_name", "county_name", "population", "zip_counts",
                                                        "trx_counts", "presc_counts")
+        logger.info('city_transformation() function has finished successfully...')
         return dfJoinCityFactSelected
     except Exception as ex:
         logger.error(f'city_transformation() function has failed! Check the Stack Trace {str(ex)}', exc_info=True)
