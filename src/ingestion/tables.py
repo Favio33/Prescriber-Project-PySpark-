@@ -84,3 +84,6 @@ factTable = {
         'alias': 'total_drug_cost'
     }
 }
+
+reportPrescriber = ['presc_id', 'full_name', 'presc_state', 'country_name', 'years_of_exp', 'trx_cnt',
+                    'total_day_supply', 'total_drug_cost']

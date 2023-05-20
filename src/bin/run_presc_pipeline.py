@@ -7,6 +7,7 @@ import variables
 # Import Utils Ingestion
 from src.ingestion.staging.load_files import load_files
 from src.ingestion.raw.preprocessing import preprocess_dimension, preprocess_fact
+from src.ingestion.master.transformation import city_report, prescriber_report
 
 # Import Spark Utilities
 from src.spark.SparkSetup import get_spark_object
@@ -30,18 +31,9 @@ def main():
         # Preprocessed DataFrames
         dfCitySelected = preprocess_dimension(dfCity)
         dfFactSelected = preprocess_fact(dfFact)
-
-
-        # Load the Prescriber Fact File
-        # Validate
-        # Set Up Logging Configuration Mechanism
-        # Set Up Error Handling
-
-        # Initiate run_presc_data_processing script
-        # Perform data cleaning
-        # Validate
-        # Set Up Logging Configuration Mechanism
-        # Set Up Error Handling
+        # Transform DataFrames
+        dfCityReport = city_report(dfCitySelected, dfFactSelected)
+        dfPrescriberReport = prescriber_report(dfFactSelected)
 
         # Initiate run_presc_data_transform script
         # Apply all transformations
