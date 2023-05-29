@@ -13,7 +13,7 @@ logger = logging.getLogger('transformation')
 def city_report(df_city, df_fact):
 
     try:
-        logger.info('city_transformation() function has been initialized...')
+        logger.info('city_report() function has been initialized...')
         dfCityCount = df_city.withColumn('zip_counts', count_zips(f.col('zips')))
         logger.info('UDF count_zips() executed successfully')
         dfFactGroupCity = df_fact.groupBy('presc_state', 'presc_city').agg(
@@ -25,7 +25,7 @@ def city_report(df_city, df_fact):
         logger.info('Successfully joined')
         dfJoinCityFactSelected = dfJoinCityFact.select("city", "state_name", "county_name", "population", "zip_counts",
                                                        "trx_counts", "presc_counts")
-        logger.info('city_transformation() function has finished successfully...')
+        logger.info('city_report() function has finished successfully...')
         return dfJoinCityFactSelected
     except Exception as ex:
         logger.error(f'city_transformation() function has failed! Check the Stack Trace {str(ex)}', exc_info=True)

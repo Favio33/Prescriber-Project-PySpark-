@@ -15,3 +15,7 @@ appName = "USA Prescriber Research Report"
 currentPath = os.getcwd()
 pathStagingDimensionCity = currentPath + '\\resources\\staging\\dimension_city'
 pathStagingFact = currentPath + '\\resources\\staging\\fact'
+
+# Output paths
+output_city = "PrescPipeline/output/dimension_city"
+output_fact = "PrescPipeline/output/presc"

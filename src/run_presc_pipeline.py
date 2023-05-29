@@ -8,6 +8,7 @@ import variables
 from ingestion.staging.load_files import load_files
 from ingestion.raw.preprocessing import preprocess_dimension, preprocess_fact
 from ingestion.master.transformation import city_report, prescriber_report
+from utils.Utilities import extract_files
 
 # Import Spark Utilities
 from spark.SparkSetup import get_spark_object
@@ -35,16 +36,9 @@ def main():
         dfCityReport = city_report(dfCitySelected, dfFactSelected)
         dfPrescriberReport = prescriber_report(dfFactSelected)
 
-        # Initiate run_presc_data_transform script
-        # Apply all transformations
-        # Validate
-        # Set Up Logging Configuration Mechanism
-        # Set Up Error Handling
-
         # Initiate run_data_extraction script
-        # Validate
-        # Set Up Logging Configuration Mechanism
-        # Set Up Error Handling
+        extract_files(dfCityReport, 'json', variables.output_city, 1, False, 'bzip2')
+        extract_files(dfPrescriberReport, 'orc', variables.output_fact, 2, False, 'snappy')
 
         logging.info('presc_run_pipeline.py is completed!')
 

@@ -1,5 +1,5 @@
 import os
-from src import variables
+import variables
 import logging.config
 
 logging.config.fileConfig('./configs/loggingFile.conf')
@@ -31,3 +31,14 @@ def get_format_file(path: str):
     except Exception as ex:
         logger.error(f'Error in get_format_file() method. Check Stack Trace: {str(ex)}', exc_info=True)
         raise ex
+
+
+def extract_files(df, file_format, filepath, split_no, header_req, compression_type):
+    try:
+        logger.info(f"extract_files() has been initialized...")
+        df.coalesce(split_no).\
+            write.\
+            format(file_format).\
+            save(filepath, header=header_req, compressionType=compression_type)
+    except Exception as ex:
+        logger.error(f"extract_files() function has failed. Check Stack Trace: {str(ex)}", exc_info=True)
