@@ -1,8 +1,8 @@
 import os
-from src.bin import variables
+from src import variables
 import logging.config
 
-logging.config.fileConfig('../configs/loggingFile.conf')
+logging.config.fileConfig('./configs/loggingFile.conf')
 logger = logging.getLogger('Utilities')
 
 

@@ -6,7 +6,7 @@ from ..tables import reportPrescriber
 
 import logging.config
 
-logging.config.fileConfig('../configs/loggingFile.conf')
+logging.config.fileConfig('./configs/loggingFile.conf')
 logger = logging.getLogger('transformation')
 
 

@@ -5,18 +5,18 @@ import sys
 import variables
 
 # Import Utils Ingestion
-from src.ingestion.staging.load_files import load_files
-from src.ingestion.raw.preprocessing import preprocess_dimension, preprocess_fact
-from src.ingestion.master.transformation import city_report, prescriber_report
+from ingestion.staging.load_files import load_files
+from ingestion.raw.preprocessing import preprocess_dimension, preprocess_fact
+from ingestion.master.transformation import city_report, prescriber_report
 
 # Import Spark Utilities
-from src.spark.SparkSetup import get_spark_object
+from spark.SparkSetup import get_spark_object
 
 # Logging
 import logging
 import logging.config
 
-logging.config.fileConfig(fname='../configs/loggingFile.conf')
+logging.config.fileConfig(fname='./configs/loggingFile.conf')
 
 
 def main():

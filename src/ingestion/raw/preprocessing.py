@@ -4,7 +4,7 @@ from pyspark.sql.window import Window
 from ..tables import dimensionsTable, factTable
 import logging.config
 
-logging.config.fileConfig('../configs/loggingFile.conf')
+logging.config.fileConfig('./configs/loggingFile.conf')
 logger = logging.getLogger('preprocessing')
 
 

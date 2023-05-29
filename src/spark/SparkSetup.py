@@ -1,9 +1,8 @@
 from pyspark.sql import SparkSession
-import logging
 import logging.config
 
 # Load the Logging config file
-logging.config.fileConfig('../configs/loggingFile.conf')
+logging.config.fileConfig('./configs/loggingFile.conf')
 logger = logging.getLogger(__name__.split('.')[-1])
 
 
