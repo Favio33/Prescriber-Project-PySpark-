@@ -40,5 +40,7 @@ def extract_files(df, file_format, filepath, split_no, header_req, compression_t
             write.\
             format(file_format).\
             save(filepath, header=header_req, compressionType=compression_type)
+        logger.info(f"extract_files() finalized successfully!!")
     except Exception as ex:
         logger.error(f"extract_files() function has failed. Check Stack Trace: {str(ex)}", exc_info=True)
+        raise ex
