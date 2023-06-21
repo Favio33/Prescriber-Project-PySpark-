@@ -42,6 +42,26 @@ if [ $status == 0 ]
   echo "The HDFS Output directory $FACT_PATH is deleted before extraction."
 fi
 
+HIVE_CITY_PATH=/user/hive/warehouse/prescpipeline.db/df_city_report
+hdfs dfs -test -d $HIVE_CITY_PATH
+status=$?
+if [ $status == 0]
+    then
+    echo "The HDFS output directory $HIVE_CITY_PATH is available. Proceed to delete."
+    hdfs dfs -rm -r -f $HIVE_CITY_PATH
+    printf "The HDFS Output directory $HIVE_CITY_PATH is deleted for Hive !!! \n\n "
+fi
+
+HIVE_FACT_PATH=/user/hive/warehouse/prescpipeline.db/df_prescriber_report
+hdfs dfs -test -d $HIVE_FACT_PATH
+status=$?
+if [ $status == 0]
+    then
+    echo "The HDFS output directory $HIVE_FACT_PATH is available. Proceed to delete."
+    hdfs dfs -rm -r -f $HIVE_FACT_PATH
+    printf "The HDFS Output directory $HIVE_FACT_PATH is deleted for Hive !!! \n\n "
+fi
+
 echo "${JOBNAME} is Completed...: $(date)"
 
 } > ${LOGFILE} 2>&1  # <--- End of program and end of log.

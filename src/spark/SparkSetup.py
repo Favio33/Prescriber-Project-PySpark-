@@ -16,7 +16,7 @@ def get_spark_object(env: str, appname: str):
             master = 'yarn'
 
         spark = SparkSession.builder.master(master).appName(appname).getOrCreate()
-        logger.info('SparkSession has been created!')
+        logger.info('SparkSession has been created!\n')
         validate_spark_config(spark)
 
         return spark
@@ -30,7 +30,7 @@ def validate_spark_config(spark):
 
     try:
         validationdf = spark.sql("select current_timestamp")
-        logger.info("Spark Object set up correctly at " + str(validationdf.collect()[0][0]))
+        logger.info("Spark Object set up correctly at " + str(validationdf.collect()[0][0]) + '\n')
     except Exception as ex:
         logger.error('Check out get_spark_object() method: ' + str(ex), exc_info=True)
         raise ex

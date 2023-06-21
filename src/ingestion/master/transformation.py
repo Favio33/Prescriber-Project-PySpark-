@@ -25,7 +25,7 @@ def city_report(df_city, df_fact):
         logger.info('Successfully joined')
         dfJoinCityFactSelected = dfJoinCityFact.select("city", "state_name", "county_name", "population", "zip_counts",
                                                        "trx_counts", "presc_counts")
-        logger.info('city_report() function has finished successfully...')
+        logger.info('city_report() function has finished successfully...\n')
         return dfJoinCityFactSelected
     except Exception as ex:
         logger.error(f'city_transformation() function has failed! Check the Stack Trace {str(ex)}', exc_info=True)
@@ -41,7 +41,7 @@ def prescriber_report(df_fact):
             filter((f.col('years_of_exp') >= 20) & (f.col('years_of_exp') <= 50)).\
             withColumn('rank', f.dense_rank().over(windowsSpec)).\
             filter(f.col('rank') <= 5)
-        logger.info('prescriber_report() function has finished successfully...')
+        logger.info('prescriber_report() function has finished successfully...\n')
         return df_presc_report
     except Exception as ex:
         logger.error(f'prescriber_report() function has failed! Check the Stack Trace {str(ex)}', exc_info=True)

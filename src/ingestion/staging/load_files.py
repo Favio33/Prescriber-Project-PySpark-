@@ -31,5 +31,6 @@ def load_files(spark, file_path):
         logger.info(f"The dataframe loaded has {df.count()} rows")
         logger.info(f"The dataframe top 10 records are:")
         logger.info("\n \t" + df.limit(10).toPandas().to_string(index=False))
+        logger.info('\n\n')
         return df
 

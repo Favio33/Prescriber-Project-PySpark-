@@ -16,7 +16,7 @@ def data_persist_hive(spark, df, df_name, partition_by, mode):
         'hdfs://localhost:9000/user/hive/warehouse/prescpipeline.db'""")
         spark.sql('use prescpipeline')
         df.write.saveAsTable(df_name, mode=mode, partitionBy=partition_by)
-
+        logger.info(f"data_persist_hive() method has been executed successfully!! \n")
     except Exception as ex:
         logger.error(f'data_persist_hive() function has failed. Check Stack Drive {str(ex)}', exc_info=True)
         raise ex

@@ -28,6 +28,10 @@ HDFS_STAGING_PATH=PrescPipeline/resources/staging
 HDFS_CITY_DIR=${HDFS_STAGING_PATH}/dimension_city
 HDFS_FACT_DIR=${HDFS_STAGING_PATH}/fact
 
+### Delete the files at Local paths if exists
+rm -f ${LOCAL_CITY_DIR}/*
+rm -f ${LOCAL_FACT_DIR}/*
+
 ### Copy the City  and Fact file to HDFS
 hdfs dfs -put -f ${LOCAL_CITY_DIR}/* ${HDFS_CITY_DIR}/
 hdfs dfs -put -f ${LOCAL_FACT_DIR}/* ${HDFS_FACT_DIR}/
