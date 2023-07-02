@@ -1,5 +1,9 @@
 /env/
 /.idea/
 /test.py
-/src/staging/dimension_city/*
-/src/staging/fact/*
+/src/resources/staging/fact/*
+/src/logs/*
+/.env
+/*/*/__pycache__
+/*/__pycache__
+/*/*/*/__pycache__
